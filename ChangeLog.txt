@@ -2,6 +2,7 @@ Changelog for Intercepting Filters Module
 
 2011-12-31
 * Improved exception messages.
+* Renamed web.xml to filters.xml and changed root node from 'web-app' to 'filters'.
 * Updated some inline documentation.
 * Fixed indentation.
 

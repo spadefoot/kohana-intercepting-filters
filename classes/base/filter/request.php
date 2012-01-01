@@ -22,7 +22,7 @@
  *
  * @package Intercepting Filters
  * @category Filter
- * @version 2011-12-22
+ * @version 2011-12-31
  */
 class Base_Filter_Request extends Kohana_Request_Client_Internal {
 
@@ -104,7 +104,7 @@ class Base_Filter_Request extends Kohana_Request_Client_Internal {
 			}
 
 			// Load XML resource that contains the filter definitions
-			$resource = XML::load('web.xml');
+			$resource = XML::load('filters.xml');
 
 			// Initialize filter parser
 			$parser = new Filter_Parser($resource);

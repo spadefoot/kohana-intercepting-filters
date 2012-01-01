@@ -21,7 +21,7 @@
  *
  * @package Intercepting Filters
  * @category Filter
- * @version 2011-12-22
+ * @version 2011-12-31
  */
 class Base_Filter_Parser extends Kohana_Object {
 
@@ -58,7 +58,7 @@ class Base_Filter_Parser extends Kohana_Object {
 		// Gets the URL segments
 		$url_segments = explode('/', $url_pattern);
 		// Gets all filter node matching the URL pattern
-		$nodes = $this->resource->xpath("/web-app/filter[filter-name=/web-app/filter-mapping[url-pattern='*/*' or url-pattern='{$url_segments[0]}/*' or url-pattern='{$url_pattern}' or url-pattern='*/{$url_segments[1]}']/filter-name]");
+		$nodes = $this->resource->xpath("/filters/filter[filter-name=/filters/filter-mapping[url-pattern='*/*' or url-pattern='{$url_segments[0]}/*' or url-pattern='{$url_pattern}' or url-pattern='*/{$url_segments[1]}']/filter-name]");
 		// Loops through the filters
 		foreach ($nodes as $node) {
 			$children = $node->children();
