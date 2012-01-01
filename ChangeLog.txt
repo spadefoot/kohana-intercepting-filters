@@ -1,0 +1,9 @@
+Changelog for Intercepting Filters Module
+
+2011-12-31
+* Improved exception messages.
+* Updated some inline documentation.
+* Fixed indentation.
+
+2011-12-22
+* Initial commit.

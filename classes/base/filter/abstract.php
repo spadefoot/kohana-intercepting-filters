@@ -27,48 +27,48 @@
  */
 abstract class Base_Filter_Abstract extends Kohana_Object {
 
-    /**
-     * This variable stores the Filter configurations.
-     *
-     * @access protected
-     * @var Filter_Config
-     */
-    protected $config = NULL;
+	/**
+	 * This variable stores the Filter configurations.
+	 *
+	 * @access protected
+	 * @var Filter_Config
+	 */
+	protected $config = NULL;
 
-    /**
-     * This constructor initializes the class with the specified filter
-     * configurations.
-     *
-     * @access public
-     * @final
-     * @param Filter_Config $config         the filter configurations
-     * @return Filter_Abstract              an instance of this class
-     */
-    public final function __construct(Filter_Config $config) {
-        $this->config = $config;
-    }
+	/**
+	 * This constructor initializes the class with the specified filter
+	 * configurations.
+	 *
+	 * @access public
+	 * @final
+	 * @param Filter_Config $config         the filter configurations
+	 * @return Filter_Abstract              an instance of this class
+	 */
+	public final function __construct(Filter_Config $config) {
+		$this->config = $config;
+	}
 
-    /**
-     * This function will causes the filter to be executed during the pre-processing
-     * phase of execution.
-     *
-     * @access public
-     * @abstract
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public abstract function pre_process(Request $request, Response $response);
+	/**
+	 * This function will causes the filter to be executed during the pre-processing
+	 * phase of execution.
+	 *
+	 * @access public
+	 * @abstract
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public abstract function pre_process(Request $request, Response $response);
 
-    /**
-     * This function will causes the filter to be executed during the post-processing
-     * phase of execution.
-     *
-     * @access public
-     * @abstract
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public abstract function post_process(Request $request, Response $response);
+	/**
+	 * This function will causes the filter to be executed during the post-processing
+	 * phase of execution.
+	 *
+	 * @access public
+	 * @abstract
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public abstract function post_process(Request $request, Response $response);
 
 }
 ?>

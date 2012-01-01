@@ -25,43 +25,43 @@
  */
 class Filter_Benchmark extends Filter_Adaptor {
 
-    /**
-     * This variable stores the start time.
-     *
-     * @access protected
-     * @var timestamp
-     */
-    protected $start_time = NULL;
+	/**
+	 * This variable stores the start time.
+	 *
+	 * @access protected
+	 * @var timestamp
+	 */
+	protected $start_time = NULL;
 
-    /**
-     * This function will calculate the start time and temporarily store it.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function pre_process(Request $request, Response $response) {
-        $mtime = microtime();
-        $mtime = explode(' ', $mtime);
-        $mtime = $mtime[1] + $mtime[0];
-        $this->start_time = $mtime;
-    }
+	/**
+	 * This function will calculate the start time and temporarily store it.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function pre_process(Request $request, Response $response) {
+		$mtime = microtime();
+		$mtime = explode(' ', $mtime);
+		$mtime = $mtime[1] + $mtime[0];
+		$this->start_time = $mtime;
+	}
 
-    /**
-     * This function will calculate the end time and will echo out the difference.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function post_process(Request $request, Response $response) {
-        $mtime = microtime();
-        $mtime = explode(" ", $mtime);
-        $mtime = $mtime[1] + $mtime[0];
-        $end_time = $mtime;
-        $total_time = ($end_time - $this->start_time);
-        echo 'This page was created in ' . $total_time . ' seconds.';
-    }
+	/**
+	 * This function will calculate the end time and will echo out the difference.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function post_process(Request $request, Response $response) {
+		$mtime = microtime();
+		$mtime = explode(" ", $mtime);
+		$mtime = $mtime[1] + $mtime[0];
+		$end_time = $mtime;
+		$total_time = ($end_time - $this->start_time);
+		echo 'This page was created in ' . $total_time . ' seconds.';
+	}
 
 }
 ?>

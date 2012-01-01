@@ -25,18 +25,18 @@
  */
 class Filter_Minify extends Filter_Adaptor {
 
-    /**
-     * This function removes any extra whitespace from the response's content body.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function post_process(Request $request, Response $response) {
-        $content = $response->body();
-        $content = preg_replace('/(?:(?)|(?))(\s+)(?=\<\/?)/', '', $content);
-        $response->body($content);
-    }
+	/**
+	 * This function removes any extra whitespace from the response's content body.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function post_process(Request $request, Response $response) {
+		$content = $response->body();
+		$content = preg_replace('/(?:(?)|(?))(\s+)(?=\<\/?)/', '', $content);
+		$response->body($content);
+	}
 
 }
 ?>

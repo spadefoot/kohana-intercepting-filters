@@ -103,34 +103,34 @@ class Base_Filter_Request extends Kohana_Request_Client_Internal {
 				throw new HTTP_Exception_404('The requested URL :uri was not found on this server.', array(':uri' => $request->uri()));
 			}
 
-            // Load XML resource that contains the filter definitions
-            $resource = XML::load('web.xml');
+			// Load XML resource that contains the filter definitions
+			$resource = XML::load('web.xml');
 
-            // Initialize filter parser
-            $parser = new Filter_Parser($resource);
+			// Initialize filter parser
+			$parser = new Filter_Parser($resource);
 
-            // Get a response object
-            $response = ($request->response()) ? $request->response() : $request->create_response();
+			// Get a response object
+			$response = ($request->response()) ? $request->response() : $request->create_response();
 
-            // Create the filter chain
-            $filter_chain = new Filter_Chain($request, $response);
+			// Create the filter chain
+			$filter_chain = new Filter_Chain($request, $response);
 
 			// Determine the action to use
 			$action = $request->action();
 
-            // Create the URL pattern for fetching filters
-            $url_pattern = $controller . '/' . $action;
+			// Create the URL pattern for fetching filters
+			$url_pattern = $controller . '/' . $action;
 
-            // Add filters to filter chain
-            $parser->parse($filter_chain, $url_pattern);
+			// Add filters to filter chain
+			$parser->parse($filter_chain, $url_pattern);
 
-            // Perform the pre-processing of the filter
-            $filter_chain->pre_process();
+			// Perform the pre-processing of the filter
+			$filter_chain->pre_process();
 
 			// Load the controller using reflection
 			$class = new ReflectionClass($prefix.$controller);
 
-            // Check whether the controller class is abstract
+			// Check whether the controller class is abstract
 			if ($class->isAbstract()) {
 				throw new Kohana_Exception('Cannot create instances of abstract :controller', array(':controller' => $prefix.$controller));
 			}
@@ -138,16 +138,16 @@ class Base_Filter_Request extends Kohana_Request_Client_Internal {
 			// Create a new instance of the controller
 			$controller = $class->newInstance($request, $response);
 
-            // Execute the "before action" method
-            $class->getMethod('before')->invoke($controller);
+			// Execute the "before action" method
+			$class->getMethod('before')->invoke($controller);
 
-            // Fetch the request parameters
+			// Fetch the request parameters
 			$params = $request->param();
 
-            // If the action doesn't exist, it's a 404
-    		if ( ! $class->hasMethod('action_'.$action)) {
-    			throw new HTTP_Exception_404('The requested URL :uri was not found on this server.', array(':uri' => $request->uri()));
-    		}
+			// If the action doesn't exist, it's a 404
+			if ( ! $class->hasMethod('action_'.$action)) {
+				throw new HTTP_Exception_404('The requested URL :uri was not found on this server.', array(':uri' => $request->uri()));
+			}
 
 			/**
 			 * Execute the main action with the parameters
@@ -155,12 +155,12 @@ class Base_Filter_Request extends Kohana_Request_Client_Internal {
 			 * @deprecated $params passing is deprecated since version 3.1
 			 *             will be removed in 3.2.
 			 */
-        	$class->getMethod('action_'.$action)->invokeArgs($controller, $params);
+			$class->getMethod('action_'.$action)->invokeArgs($controller, $params);
 
 			// Execute the "after action" method
 			$class->getMethod('after')->invoke($controller);
 
-            // Perform the post-processing of the filter
+			// Perform the post-processing of the filter
 			$filter_chain->post_process();
 
 			// Stop response time

@@ -25,29 +25,29 @@
  */
 abstract class Base_Filter_Adaptor extends Filter_Abstract {
 
-    /**
-     * This function will causes the filter to be executed during the pre-processing
-     * phase of execution.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function pre_process(Request $request, Response $response) {
-        // do nothing
-    }
+	/**
+	 * This function will causes the filter to be executed during the pre-processing
+	 * phase of execution.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function pre_process(Request $request, Response $response) {
+		// do nothing
+	}
 
-    /**
-     * This function will causes the filter to be executed during the post-processing
-     * phase of execution.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function post_process(Request $request, Response $response) {
-        // do nothing
-    }
+	/**
+	 * This function will causes the filter to be executed during the post-processing
+	 * phase of execution.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function post_process(Request $request, Response $response) {
+		// do nothing
+	}
 
 }
 ?>

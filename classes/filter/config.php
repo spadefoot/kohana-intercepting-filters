@@ -17,7 +17,7 @@
  */
 
 /**
- * This class handles the processing of filters.
+ * This class handles a filter's configurations.
  *
  * @package Intercepting Filters
  * @category Filter

@@ -25,17 +25,17 @@
  */
 class Filter_Redirect extends Filter_Adaptor {
 
-    /**
-     * This function will redirect the client.
-     *
-     * @access public
-     * @param Request $request              the client's request
-     * @param Response $response            the server's response
-     */
-    public function pre_process(Request $request, Response $response) {
-        $redirect = $this->config->get_parameter('redirect');
-        $request->redirect($redirect);
-    }
+	/**
+	 * This function will redirect the client.
+	 *
+	 * @access public
+	 * @param Request $request              the client's request
+	 * @param Response $response            the server's response
+	 */
+	public function pre_process(Request $request, Response $response) {
+		$redirect = $this->config->get_parameter('redirect');
+		$request->redirect($redirect);
+	}
 
 }
 ?>
